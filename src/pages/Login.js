@@ -23,7 +23,7 @@ function Login(props) {
 
         }, 
         onError(err){ 
-            setErrors(err.graphQLErrors[0].extensions.exception.errors);
+            setErrors(err&&err.graphQLErrors[0]?err.graphQLErrors[0].extensions.exception.errors:{});
         },
         variables: user
     });
