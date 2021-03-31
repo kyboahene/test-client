@@ -9,7 +9,7 @@ const Begins = () => {
         <div className="col-md-6">
             <div className="contact-form card">
                 <div className="contact-image">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" alt="contact image"/>
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" alt="contact"/>
                 </div>
             <form method="post">
                 <h3>Please proceed</h3>

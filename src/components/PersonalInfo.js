@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../context/Auth';
+import React from 'react';
+// import { AuthContext } from '../context/Auth';
 
 
 const PersonalInfo = () => {
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
 
     return (
         <div className="container">
@@ -11,7 +11,7 @@ const PersonalInfo = () => {
             <div className="col-md-6">
             <div className="contact-form card">
                 <div className="contact-image">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"/>
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" alt="contact"/>
                 </div>
             <form method="post">
                 <h5 className="text-center">Enter your personal information</h5>
