@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-import { AuthContext, AuthProvider } from "../context/Auth";
+import { AuthContext } from "../context/Auth";
 
 import Navbar from '../components/Navbar';
-import gql from 'graphql-tag';
-import userEvent from '@testing-library/user-event';
 
 
 const Dashboard = () => {

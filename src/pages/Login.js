@@ -16,7 +16,7 @@ function Login(props) {
         password: "",
     })
 
-    const [addUser, {loading}] = useMutation(LOGIN_USER, {
+    const [addUser] = useMutation(LOGIN_USER, {
         update(_, { data: {login: userData} }){
             context.login(userData)
             props.history.push("/dashboard");

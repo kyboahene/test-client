@@ -18,7 +18,7 @@ function Login(props) {
          confirmPassword: ""
     })
 
-    const [addUser, {loading}] = useMutation(REGISTER_USER, {
+    const [addUser] = useMutation(REGISTER_USER, {
         update(_, { data: { register: userData } }){
             context.login(userData)
             props.history.push("/dashboard");
