@@ -18,7 +18,7 @@ function App() {
             <AuthRoute  path="/register" component={Register}/>
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/:username" component={Prospect}/>
-            <Route path="/:username/personal-info" component={PersonalInfo}/>
+            <Route path="/personal-info/:username" component={PersonalInfo}/>
           </Switch>
         </BrowserRouter>
     </AuthProvider>

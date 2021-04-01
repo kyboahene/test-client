@@ -1,15 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 
 import { AuthContext } from "../context/Auth";
 import { useForm } from "../util/Hooks";
+import { REGISTER_USER } from "../util/Queries";
 
 function Login(props) {
     const context = useContext(AuthContext);
     const [errors, setErrors] = useState({});
-    // const [user, setUser] = useState({username: "", email: "", password: "", confirmPassword: ""});
 
     const { handleChange, handleSubmit, user } = useForm(registerUser, {
         username: "", 
@@ -22,7 +21,6 @@ function Login(props) {
         update(_, { data: { register: userData } }){
             context.login(userData)
             props.history.push("/dashboard");
-
         }, 
         onError(err){ 
             setErrors(err&&err.graphQLErrors[0]?err.graphQLErrors[0].extensions.exception.errors:{});
@@ -34,20 +32,6 @@ function Login(props) {
         addUser();
     }
 
-
-
-    // const handleChange = (e) => {
-    //     setUser({...user, [e.target.name]: e.target.value});
-    // }
-
-
-    // const handleSubmit = (e)=> {
-    //     e.preventDefault();
-
-    //     addUser();
-    // }
-
-
     return (
         <div className="container-fluid">
             <div className="row d-flex justify-content-center" style={{marginTop: "10%"}}>
@@ -55,14 +39,14 @@ function Login(props) {
                 <form onSubmit={handleSubmit}>
                     <h3 className="text-center">Sign Up</h3>  
                     {Object.keys(errors).length > 0 && (
-                        <div className="alert alert-danger alert-dismissible">
+                        <div className="alert alert-danger">
                         <ul className="list">
                             {Object.values(errors).map((value) => (
                             <li key={value}>{value}</li>
                             ))}
                         </ul>
                         </div>
-                    )}
+                    )} 
                     <div className="form-outline mb-4">
                         <input type="text"  className="form-control border" name="username" value={user.username} onChange={handleChange}/>
                         <label className="form-label" for="form1Example1">Username</label>
@@ -101,29 +85,5 @@ function Login(props) {
         </div>
     );
 }
-
-const REGISTER_USER = gql`
-  mutation register(
-    $username: String!
-    $email: String!
-    $password: String!
-    $confirmPassword: String!
-  ) {
-    register(
-      registerInput: {
-        username: $username
-        email: $email
-        password: $password
-        confirmPassword: $confirmPassword
-      }
-    ) {
-      id
-      email
-      username
-      createdAt
-      token
-    }
-  }
-`;
 
 export default Login;

@@ -30,7 +30,7 @@ const Dashboard = () => {
                 <div className="col-md-4">
                     <div className="card border p-4 mt-4">
                         <p className="mb-0">Copy Link to Policy Tool</p>
-                        <p className="mt-2 mb-0 p-1 px-2 border">localhost://{user.username}  <i className="fas fa-copy"></i> </p>
+                        <p className="mt-2 mb-0 p-1 px-2 border">localhost://{user ? user.username : ""}  <i className="fas fa-copy"></i> </p>
                     </div>
                 </div>
             </div>

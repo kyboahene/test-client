@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { AuthContext } from "../context/Auth";
 
-const Navbar = () => {
+const Navbar = (props) => {
     const { user, logout } = useContext(AuthContext);
+    const history = useHistory();
 
+    const handleClick = () => {
+        logout();
+        history.push("/");
+    }
 
     return (
         <div className="container-fluid">
@@ -32,7 +37,7 @@ const Navbar = () => {
                         height="50"
                         alt=""
                         loading="lazy"
-                    /> <p className="logout mt-2 mx-3" style={{color: "blue"}} onClick={logout}>logout</p>
+                    /> <p className="logout mt-2 mx-3" style={{color: "blue"}} onClick={handleClick}>logout</p>
                     </div>
                 </div>
                 </nav>

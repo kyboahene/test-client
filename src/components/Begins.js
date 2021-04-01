@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
-import { AuthContext } from "../context/Auth";
-
-const Begins = () => {
-    const { user } = useContext(AuthContext);
+const Begins = (props) => {
+    const { username } = useParams();
     return (
         <div className="col-md-6">
             <div className="contact-form card">
@@ -14,7 +12,7 @@ const Begins = () => {
             <form method="post">
                 <h3>Please proceed</h3>
                 <div className="row">
-                    <Link to={`/${user.username}/personal-info`}>
+                    <Link to={`/personal-info/${ username}`}>
                         <button className="btn btn-primary btn-block">Continue</button>
                     </Link> 
                 </div>
