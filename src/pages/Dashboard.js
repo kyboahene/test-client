@@ -132,7 +132,7 @@ const Dashboard = () => {
                           ></i>{' '}
                           <div
                             className="modal fade"
-                            id={`   staticBackdrop${prospect.id}`}
+                            id={`staticBackdrop${prospect.id}`}
                             data-mdb-backdrop="static"
                             data-mdb-keyboard="false"
                             tabindex="-1"
