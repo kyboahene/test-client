@@ -43,11 +43,11 @@ const ADD_PROSPECT = gql`
         $username: String!
         $fname: String!
         $Lname: String!
-        $password: String!
         $phone: String!
+        $email: String!
     ) {
-        addProspect(
-            prospectDetails: {
+      addProspect(
+        prospectDetails: {
                 username: $username
                 fname: $fname
                 Lname: $Lname
@@ -63,9 +63,56 @@ const ADD_PROSPECT = gql`
     }
 `;
 
+const ADD_DRIVER_LICENSE = gql`
+  mutation addDriverLincense(
+    $ProspectId: ID!, 
+    $DofBirth: String!, 
+    $Number: String!, 
+    $State: State!
+  ){
+    addDriverLincense(
+      ProspectId: $ProspectId
+      DofBirth: $DofBirth
+      Number: $Number
+      State: $State
+    ){
+      id
+      email
+      driver_license{
+        DofBirth
+        State
+        Number
+      }
+      user
+    }
+  }
+`;
+
+const GET_PROSPECT_PER_USERNAME = gql`
+    query getProspectsPerUsername( $username: String!){
+    getProspectsPerUsername( username: $username){
+      id
+      fname
+      Lname
+      email
+      phone
+      provider
+      driver_license{
+        DofBirth
+        State
+        Number
+      }
+      status
+      user
+    }
+  }
+`;
+
 
 export {
     LOGIN_USER,
     REGISTER_USER,
-    ADD_PROSPECT
+    ADD_PROSPECT,
+    ADD_DRIVER_LICENSE,
+    GET_PROSPECT_PER_USERNAME
 }

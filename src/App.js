@@ -8,6 +8,7 @@ import Prospect from "./pages/Prospect";
 import { AuthProvider } from './context/Auth';
 import AuthRoute from './util/AuthRoute';
 import PersonalInfo from "./components/PersonalInfo";
+import DriverInfo from "./pages/DriverInfo";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/:username" component={Prospect}/>
             <Route path="/personal-info/:username" component={PersonalInfo}/>
+            <Route path="/driver-info/:username" component={DriverInfo}/>
           </Switch>
         </BrowserRouter>
     </AuthProvider>
