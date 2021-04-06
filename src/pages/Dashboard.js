@@ -82,7 +82,10 @@ const Dashboard = () => {
                 <h5>Prospect lists | </h5>
               </div>
               <div className="text-left col-md-2">
-                <p className="text-muted"> {prospects.length} prospects</p>
+                <p className="text-muted">
+                  {' '}
+                  {prospects ? prospects.length : 0} prospect(s)
+                </p>
               </div>
             </div>
             <div className="row border-top">
